@@ -12,12 +12,12 @@
   <div class="container">
     <h1>Latest videos</h1>
     <div id="player-wrapper"></div>
-    <% @videos.in_groups_of(3) do |group| %>
+    <% @videos.in_groups_of(1) do |group| %>
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
             <div class="col-md-4">
-              <div class="yt_video thumbnail">
+              <div class="yt_video thumbnail ">
                 <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
                                       class: 'img-rounded'),
                             "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
@@ -30,6 +30,14 @@
                   </p>
                 </div>
               </div>
+            </div>
+             <div class="col-md-8">
+              <% if video.description.present? %>
+                <h6> Description:</h6>
+                <p> <%= video.description %> </p>
+                <% else %>
+                 <p> This video do not have description! </p>
+              <%end%>
             </div>
           <% end %>
         <% end %>
