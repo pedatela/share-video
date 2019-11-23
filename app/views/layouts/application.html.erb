@@ -16,8 +16,16 @@
           <%= link_to 'YT APIv3', root_path, class: 'navbar-brand' %>
         </div>
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Videos', root_path %></li>
-          <li><%= link_to 'Add Video', new_video_path %></li>
+         <li><%= link_to 'Videos', root_path %></li>
+        <% if user_signed_in? %>
+            Logado como: <strong><%= current_user.email %></strong>.
+            <li><%= link_to 'Add Video', new_video_path %></li>
+            <li><%= link_to 'Editar perfil', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
+          <% else %>
+            <li>  <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %></li>
+            <li> <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>           
+          <% end %>
         </ul>
       </div>
     </div>
