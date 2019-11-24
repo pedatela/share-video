@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_161358) do
+ActiveRecord::Schema.define(version: 2019_11_23_173714) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,7 +34,9 @@ ActiveRecord::Schema.define(version: 2019_11_23_161358) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["uid"], name: "index_videos_on_uid"
+    t.index ["user_id"], name: "index_videos_on_user_id"
   end
 
 end

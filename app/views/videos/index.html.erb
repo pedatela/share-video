@@ -1,12 +1,3 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Share your videos with the world!</h1>
-    <p>Click the button below to share your video from YouTube.</p>
-    <p>
-      <%= link_to 'Add video now!', new_video_path, class: 'btn btn-primary btn-lg' %>
-    </p>
-  </div>
-</div>
 
 <% if @videos.any? %>
   <div class="container">
@@ -23,11 +14,14 @@
                             "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
                 <div class="caption">
                   <h5><%= video.title %></h5>
+                  <h5> Shared By: <%= video.user_email %></h5>
                   <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
-                  <p>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
-                    <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
-                  </p>
+                  <% if user_signed_in? %>
+                    <p>
+                      <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
+                      <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                    </p>
+                  <%end %>
                 </div>
               </div>
             </div>
@@ -44,4 +38,15 @@
       </div>
     <% end %>
   </div>
+  <%else%>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Share your videos with the world!</h1>
+      <p>Click the button below to share your video from YouTube.</p>
+      <p>
+        <%= link_to 'Add video now!', new_video_path, class: 'btn btn-primary btn-lg' %>
+      </p>
+    </div>
+</div>
+
 <% end %>
