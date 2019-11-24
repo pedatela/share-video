@@ -17,8 +17,8 @@
                   <p>Published at: <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                   <% if user_signed_in? %>
                     <p>
-                      <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
-                      <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.dislikes %>
+                      <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.video_likes %>
+                      <span class="glyphicon glyphicon glyphicon-thumbs-down"></span> <%= video.video_dislikes %>
                     </p>
                   <%end %>
                 </div>
@@ -34,6 +34,8 @@
                 <% else %>
                  <p> This video do not have description! </p>
               <%end%>
+              <%= button_to 'Like', video_likes_path(video), method: :post %>
+              <p><%= video.likes.count %> <%= (video.likes.count) == 1 ? 'Like' : 'Likes'%></p>
             </div>
           <% end %>
         <% end %>

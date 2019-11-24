@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2019_11_24_180622) do
     t.string "title"
     t.string "description"
     t.datetime "published_at"
-    t.integer "likes"
-    t.integer "dislikes"
+    t.integer "video_likes"
+    t.integer "video_dislikes"
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

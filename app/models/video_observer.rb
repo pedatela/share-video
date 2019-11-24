@@ -3,8 +3,8 @@ class VideoObserver < ActiveRecord::Observer
       video = Yt::Video.new url: resource.link
       resource.uid = video.id
       resource.title = video.title
-      resource.likes = video.like_count
-      resource.dislikes = video.dislike_count
+      resource.videos_likes = video.like_count
+      resource.videos_dislikes = video.dislike_count
       resource.description = video.description
       resource.published_at = video.published_at
     rescue Yt::Errors::NoItems

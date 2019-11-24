@@ -5,8 +5,8 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :description
       t.datetime :published_at
-      t.integer :likes
-      t.integer :dislikes
+      t.integer :video_likes
+      t.integer :video_dislikes
       t.string :uid
 
       t.timestamps
