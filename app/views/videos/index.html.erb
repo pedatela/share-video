@@ -14,8 +14,7 @@
                             "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
                 <div class="caption">
                   <h5><%= video.title %></h5>
-                  <h5> Shared By: <%= video.user_email %></h5>
-                  <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+                  <p>Published at: <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                   <% if user_signed_in? %>
                     <p>
                       <span class="glyphicon glyphicon glyphicon-thumbs-up"></span> <%= video.likes %>
@@ -26,6 +25,9 @@
               </div>
             </div>
              <div class="col-md-8">
+              <h5> Shared By: <%= video.user_username %></h5>
+              <h5> Posted At: <%= video.created_at %></h5>
+              <br/>
               <% if video.description.present? %>
                 <h6> Description:</h6>
                 <p> <%= video.description %> </p>
