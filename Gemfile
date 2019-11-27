@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'yt', '~> 0.13.7'
-gem 'bootstrap-sass', '~> 3.3.0.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'autoprefixer-rails'
 gem 'rails-observers'
 gem 'devise'
